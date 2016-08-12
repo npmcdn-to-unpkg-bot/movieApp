@@ -1,0 +1,69 @@
+<div>
+  <h1 class="text-center">Movie Database</h1>
+
+  <form class="form-inline">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input ng-model="ctrl.search" type="text" class="form-control" id="search">
+    </div>
+    <div class="form-group">
+      <label for="search">Sort</label>
+      
+      <!--TODO #6: show the list of sort options form the controller in this dropdown-->
+      <select class="form-control" ng-options="option as option.label for option in ctrl.sortOptions" ng-model="ctrl.sortoption"></select>
+    </div>
+  </form>
+
+  <!--TODO #3: repeat this div for each movie-->
+  <!--TODO #4: When the user clicks a movie take them to the details page for that movie-->
+  <!--TODO #5: Only show movies where the title matches what the user typed into the search box-->
+  <!--TODO #6: Sort the movies based on what the user selects in the sort dropdown-->
+  <!--TODO #7: Setup pagination so that only 4 movies are shown at a time-->
+  <div class="media movie-list-item" ng-repeat="movie in ctrl.movies | filter:{Title:ctrl.search} | orderBy:ctrl.sortoption.sortField:ctrl.sortoption.reverse | limitTo:ctrl.moviesPerPage:ctrl.curPage * ctrl.moviesPerPage" ng-click="ctrl.goToMovie(movie)">
+    
+    <div class="media-left">
+      <div class="poster-container">
+        <!--TODO #3: Show the movie poster-->
+        <img src="{{movie.Poster}}" class="media-object movie-poster">
+      </div>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">
+        <!--TODO #3: Show the movie title-->
+        {{movie.Title}}
+        <span class="badge">
+          <!--TODO #3: show the imdb rating-->
+          {{movie.imdbRating}}
+        </span>
+      </h4>
+      <div>
+        <!--TODO #3: show the plot summary-->
+        {{movie.Plot}}
+      </div>
+      <div class="released-date">
+        Released: {{movie.Released}}<!--TODO #3: show the movie's release date-->
+      </div>
+    </div>
+  </div>
+  
+  <div>
+    <!--TODO #7: 
+      Go to the previous page of movies when this button is clicked. 
+      This button should be disabled when you are on the first page.
+    -->
+    <button class="btn btn-default"  ng-disabled="ctrl.curPage == 0" ng-click="ctrl.curPage = ctrl.curPage - 1">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+    </button>
+    
+    <!--TODO #7: show the current page number and the total number of pages-->
+    page {{ctrl.curPage + 1}} of {{ctrl.numPages}}
+    
+    <!--TODO #7: 
+      Go to the next page of movies when this button is clicked. 
+      This button should be disabled when you are on the last page.
+    -->
+    <button class="btn btn-default" ng-disabled="ctrl.curPage >= 2" ng-click="ctrl.curPage = ctrl.curPage + 1">
+      <i class="glyphicon glyphicon-chevron-right"></i>
+    </button>
+  </div>
+</div>

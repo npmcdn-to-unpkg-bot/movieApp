@@ -1,0 +1,26 @@
+<div id="movie-details">
+  <h1 class="text-center"><!--TODO #4: Show the movie title here-->
+  {{ctrl.movie.Title}}
+  </h1>
+  <div class="row">
+    <div class="col-xs-5">
+      <!--TODO #4: Show the movie poster image here-->
+      <img class="movie-poster" src="{{ctrl.movie.Poster}}">
+    </div>
+    <div class="col-xs-7">
+      <table class="table">
+        <!--TODO #4: Show all the fields from the movie object in this table-->
+        <tr ng-repeat="(key, value) in ctrl.movie">
+          <td>{{key}}</td>
+          <td>{{value}}</td>
+        </tr>
+      </table>
+    </div>    
+  </div>
+  <div class="row">
+    <div class=buttons>
+      <!--TODO #4: Make this button take you back to the home page-->
+      <a class="btn btn-primary" ng-click="ctrl.goHome()">Back</a>
+    </div>
+  </div>
+</div>
