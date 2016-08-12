@@ -6,24 +6,35 @@
 	angular
 		.module('coderMdb')
 		.config(function($routeProvider) {
+
 			$routeProvider
-				.when('/home',{
-					templateUrl:'movieList.html',
-					controller:'MovieListCtrl as ctrl',
-					resolve:{
-						movies:function(movieSrv){
-							return movieSrv.getMovies();
-						}
-					}
+				.when('/home', {
+					templateUrl: 'partials/home.html',
+					controller: 'HomeCtrl as ctrl'
 				})
-				.when('/movie/:movieid',{
-					templateUrl:'movieDetails.html',
-					controller:'MovieDetailsCtrl as ctrl'
+				.when('/movieList', {
+					templateUrl: 'partials/movieList.html',
+					controller: 'MovieListCtrl as ctrl',
+					resolve:{
+					movie: function(movieSrv){
+						console.log('resolving main')
+						return movieSrv.getMovies();
+					}
+				}
+				})
+				.when('/movieDetails/:movieId', {
+					templateUrl: 'partials/movieDetails.html',
+					controller: 'MovieDetailsCtrl as ctrl',
+					resolve:{
+					movie: function(movieSrv){
+						console.log('resolving main')
+						return movieSrv.getMovies();
+					}
+				}
 				})
 				.otherwise({
-					redirectTo:'/home'
+					redirectTo: '/home',
 				})
-
 	  /*
 	  TODO #2:
 	  Configure the router to:

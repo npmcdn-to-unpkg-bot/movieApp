@@ -1,0 +1,138 @@
+.second, .option, .display {
+  background-image: #B3C3E8;
+}
+.title {
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  top: 35%;
+  bottom: 35%;
+}
+.black {
+  font-family: 'Abel', sans-serif;
+  font-weight: lighter;
+  color:black;
+  text-align: center;
+}
+.black2 {
+  font-family: 'Abel', sans-serif;
+  font-weight: lighter;
+  color:black;
+  font-size:18px;
+}
+.text {
+  font-family: 'Abel', sans-serif;
+  font-weight: lighter;
+  color:black;
+  text-align: center;
+}
+.font60 {
+  font-size: 60px;
+}
+.gap {
+	margin-bottom: 30px;
+}
+.gap20 {
+  margin-bottom: 20px;
+}
+.centered {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  overflow: hidden;
+}
+.first button.btn {
+  display: block;
+}
+
+.row .btn, .searchBox .btn {
+  border-radius: 35%;
+  background-color: transparent;
+}
+/*Bootstrap has a thing called center-block*/
+div.first {
+  padding: 0;
+	height: 100vh;
+	min-width: 100%;
+	background-image: url(http://i.imgur.com/wDBMWBp.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	line-height: 450px;
+	vertical-align: middle;
+}
+.navbar-brand > img{
+	width: auto;
+	height: 100%;
+}
+a.navbar-brand {
+	padding: 0px;
+}
+nav.navbar-default {
+  background-color: transparent;
+  border: 0;
+  height: 80px;
+}
+.navbar-default .navbar-nav > li > a {
+    color: black;
+}
+nav.navbar-default .navbar-nav > .active > a {
+    color: black;
+    background-color: transparent;
+}
+.second > nav.navbar-default .navbar-nav > .active > a, .third > nav.navbar-default .navbar-nav > .active > a{
+    color: black;
+    background-color: transparent;
+}
+.navbar-container {
+  height:100px;
+}
+button.button-design {
+  letter-spacing: 2px;
+  background-color: transparent;
+}
+
+.grid {
+  text-align: center;
+}
+i.fa {
+  font-size: 60px;
+  color: #51A7FF;
+  font-weight: lighter;
+}
+.searchBox .fa {
+  font-size:20px;
+}
+
+.ui-datepicker table, .ui-datepicker .ui-datepicker-title {
+  border-radius: 10px;
+  background-color: #A4FFB4;
+}
+.btn.bin, .btn.eye, .btn.result {
+  background-color: transparent;
+  font-size: 10px;
+}
+table i.fa {
+  font-size: 20px;
+}
+#arrow {
+  background-color: transparent;
+}
+toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": false,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
+

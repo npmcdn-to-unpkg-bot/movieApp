@@ -1,0 +1,95 @@
+<div class="container">
+
+  <h1 class="text-center black">Movie Database</h1>
+
+  <form class="form-inline">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input ng-model="ctrl.search" ng-change="ctrl.pageReturn()" ng-submit="" type="text" class="form-control" id="search">
+    </div>
+    <div class="form-group">
+      <label for="search">Sort</label>
+      
+      <!--TODO #6: show the list of sort options form the controller in this dropdown-->
+      <select class="form-control" ng-options="options as options.label for options in ctrl.sortOptions" ng-model="ctrl.option" ng-init="ctrl.option = ctrl.sortOptions[0]">
+        
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="search">Search New Movie</label>
+      <input ng-model="ctrl.newMovie" ng-change="ctrl.pageReturn()" ng-submit="" type="text" class="form-control" id="search">
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary" ng-click="ctrl.createMovieBtn()">Go</button>
+    </div>
+  </form>
+
+
+
+  <!--TODO #3: repeat this div for each movie-->
+  <!--TODO #4: When the user clicks a movie take them to the details page for that movie-->
+  <!--TODO #5: Only show movies where the title matches what the user typed into the search box-->
+  <!--TODO #6: Sort the movies based on what the user selects in the sort dropdown-->
+  <!--TODO #7: Setup pagination so that only 4 movies are shown at a time-->
+
+<!-- *************************************************** -->
+  <!-- NOTE: Order in which the filter is implemented is important. If we don't pay attention, we might show the order of rating or title only on the page in question as opposed to the whole array of data. Same for the ctrl.search by the title. -->
+  <!-- {{ctrl.filteredMovies.length}} -->
+  <!-- Created a new variable ctrl.filteredMovies that will take the list of movies and its filters. We can then find the length of that array and monitor the elements depending on when we use the search filter input -->
+  <div class="media movie-list-item" ng-repeat="list in ctrl.filteredMovies = (ctrl.moviesList | filter: {'Title' : ctrl.search})| orderBy: ctrl.option.sortField : ctrl.option.reverse | startFromFilter: ctrl.startIndex | limitTo: ctrl.moviesPerPage" ng-click="ctrl.go('/movieDetails/', list.imdbID)">
+
+<!-- *************************************************** -->
+<!-- Snippet below not working, ternary operator syntax not right -->
+   <!--  <div class="media movie-list-item" ng-repeat="list in ctrl.moviesList | startFromFilter: ctrl.startIndex | limitTo: ctrl.moviesPerPage| filter: {'Title' : ctrl.search} | orderBy: !ctrl.option.reverse ? ctrl.option.sortField : (ctrl.option.sortField : reverse)" ng-click="ctrl.go('/movieDetails/', list.imdbID)"> -->
+<!-- *************************************************** -->
+
+
+    <div class="media-left">
+      <div class="poster-container">
+        <!--TODO #3: Show the movie poster-->
+        <img class="media-object movie-poster" ng-src="{{list.Poster}}" >
+      </div>
+    </div>
+    <div class="black2 media-body" >
+      <h3 class="media-heading">
+        Title: {{list.Title}}
+        <!--TODO #3: Show the movie title-->
+        <span class="badge">
+        {{list.imdbRating}}
+          <!--TODO #3: show the imdb rating-->
+        </span>
+      </h3>
+      <div>
+        {{list.Plot}}
+        <!--TODO #3: show the plot summary-->
+      </div>
+      <div class="black2 released-date">
+        Released: {{list.Released}}
+        <!--TODO #3: show the movie's release date-->
+      </div>
+    </div>
+  </div>
+  
+  <!-- *************************************************** -->
+  <div>
+    <!--TODO #7: 
+      Go to the previous page of movies when this button is clicked. 
+      This button should be disabled when you are on the first page.
+    -->
+    <button class="btn btn-default" ng-click="ctrl.nav(-1)" ng-disabled="ctrl.curPage === 0">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+    </button>
+    
+    <!--TODO #7: show the current page number and the total number of pages-->
+    page {{ctrl.curPage + 1}} of {{ctrl.page()}}
+    
+    <!--TODO #7: 
+      Go to the next page of movies when this button is clicked. 
+      This button should be disabled when you are on the last page.
+    -->
+    <button class="btn btn-default" ng-click="ctrl.nav(1)" ng-disabled="ctrl.curPage+1 >= ctrl.page()">
+      <i class="glyphicon glyphicon-chevron-right"></i>
+    </button>
+  </div>
+</div>

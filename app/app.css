@@ -21,11 +21,13 @@
   margin-top: 20px;
 }
 
-
+.center {
+  text-align: center;
+}
 
 #movie-details .movie-poster {
-  max-height: 350px;
-  max-width: 262px;
+  max-height: 450px;
+  max-width: 302px;
 }
 
 #movie-details .buttons {

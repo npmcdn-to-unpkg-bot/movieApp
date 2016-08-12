@@ -4,27 +4,34 @@
 <head>
   
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
   <!--TODO #1: add the angular-route.js script-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-route.js"></script>
-
+  
   <script src="app.js"></script>
-  <script src="moviedetails.ctrl.js"></script>
-  <script src="movielist.ctrl.js"></script>
-  <script src="movie.srv.js"></script>
+  <script src="controller/moviedetails.ctrl.js"></script>
+  <script src="controller/movielist.ctrl.js"></script>
+  <script src="controller/home.ctrl.js"></script>
+  <script src="service/movie.srv.js"></script>
+  <script src="startFrom.filter.js"></script>
+  <script src="https://npmcdn.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="app.css">
+
+  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
   
 </head>
 
 <body ng-app="coderMdb">
   
-  <div class="container">
-    
+  <div ng-view>
+    <div class="container">
+    </div>
+  </div>  
     <!--TODO #2: show the active page here-->
-    <ng-view></ng-view>
-  </div>
-
 </body>
 
 </html>

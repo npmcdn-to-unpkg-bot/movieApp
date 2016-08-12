@@ -1,23 +1,22 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var Movies = sequelize.define('Movies', {
+  var MOVIE = sequelize.define('MOVIE', {
     Title: DataTypes.STRING,
-    Year: DataTypes.INTEGER,
     Rated: DataTypes.STRING,
     Released: DataTypes.STRING,
     Runtime: DataTypes.STRING,
     Genre: DataTypes.STRING,
     Director: DataTypes.STRING,
-    Writer: DataTypes.STRING,
+    Write: DataTypes.STRING,
     Actors: DataTypes.STRING,
     Plot: DataTypes.STRING,
     Language: DataTypes.STRING,
-    Countr: DataTypes.STRING,
+    Country: DataTypes.STRING,
     Awards: DataTypes.STRING,
     Poster: DataTypes.STRING,
-    Metascore: DataTypes.INTEGER,
-    imdbRating: DataTypes.FLOAT,
-    imdbVotes: DataTypes.INTEGER,
+    Metascore: DataTypes.STRING,
+    imdbRating: DataTypes.STRING,
+    imdbVotes: DataTypes.STRING,
     imdbID: DataTypes.STRING,
     Type: DataTypes.STRING,
     Response: DataTypes.STRING
@@ -28,5 +27,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-  return Movies;
+  return MOVIE;
 };

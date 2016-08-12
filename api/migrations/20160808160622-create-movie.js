@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable('Movies', {
+    return queryInterface.createTable('MOVIEs', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -10,9 +10,6 @@ module.exports = {
       },
       Title: {
         type: Sequelize.STRING
-      },
-      Year: {
-        type: Sequelize.INTEGER
       },
       Rated: {
         type: Sequelize.STRING
@@ -29,7 +26,7 @@ module.exports = {
       Director: {
         type: Sequelize.STRING
       },
-      Writer: {
+      Write: {
         type: Sequelize.STRING
       },
       Actors: {
@@ -41,7 +38,7 @@ module.exports = {
       Language: {
         type: Sequelize.STRING
       },
-      Countr: {
+      Country: {
         type: Sequelize.STRING
       },
       Awards: {
@@ -51,13 +48,13 @@ module.exports = {
         type: Sequelize.STRING
       },
       Metascore: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       imdbRating: {
-        type: Sequelize.FLOAT
+        type: Sequelize.STRING
       },
       imdbVotes: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       imdbID: {
         type: Sequelize.STRING
@@ -79,6 +76,6 @@ module.exports = {
     });
   },
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('Movies');
+    return queryInterface.dropTable('MOVIEs');
   }
 };
